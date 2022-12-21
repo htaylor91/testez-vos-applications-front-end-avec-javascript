@@ -7,6 +7,14 @@ orbs:
   # https://circleci.com/developer/orbs/orb/blimmer/jest
   jest: blimmer/jest@1.1.1
 
+jobs:
+  jest/test:
+    docker:
+      # replace with your preferred image
+      - image: cimg/base:stable
+    steps:
+      - jest/configure
+
   workflows:
     test:
       jobs:
