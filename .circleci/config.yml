@@ -3,19 +3,14 @@
 version: 2.1
 
 jobs:
-  build:
+  build-and-test:
     docker:
-      -image: cimg/node:19.2.0
-    
+      - image: cimg/node:19.2.0
+
     steps:
-      -checkout
+      - checkout
       - node/install-packages:
           pkg-manager: npm
       - run:
           name: Run tests
           command: npm test
-          
-workflows:
-  jest-testing:
-    jobs:
-      - build
