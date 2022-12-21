@@ -8,14 +8,14 @@ orbs:
   jest: blimmer/jest@1.1.1
 
 jobs:
-  jest-test:
+  jest/test:
     docker:
       # replace with your preferred image
       - image: cimg/base:stable
     steps:
       - jest/configure
-
-  workflows:
-    test-workflow:
-      jobs:
-        - jest-test
+      
+workflows:
+  test:
+    jobs:
+      - jest/test
